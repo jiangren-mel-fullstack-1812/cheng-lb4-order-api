@@ -46,6 +46,7 @@
   ],
   "dependencies": {
     "@loopback/boot": "^1.0.10",
+    "@loopback/build": "^1.2.0",
     "@loopback/context": "^1.4.1",
     "@loopback/core": "^1.1.4",
     "@loopback/openapi-v3": "^1.1.7",
@@ -53,9 +54,9 @@
     "@loopback/rest": "^1.5.3",
     "@loopback/rest-explorer": "^1.1.6",
     "@loopback/service-proxy": "^1.0.6",
-    "@loopback/build": "^1.2.0",
     "@loopback/testlab": "^1.0.4",
     "@loopback/tslint-config": "^2.0.0",
+    "loopback-connector-mongodb": "^4.0.0",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2"
   },
