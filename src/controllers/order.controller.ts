@@ -16,20 +16,20 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import {Order} from '../models';
-import {OrderRepository} from '../repositories';
+import { Order } from '../models';
+import { OrderRepository } from '../repositories';
 
 export class OrderController {
   constructor(
     @repository(OrderRepository)
-    public orderRepository : OrderRepository,
-  ) {}
+    public orderRepository: OrderRepository,
+  ) { }
 
   @post('/orders', {
     responses: {
       '200': {
         description: 'Order model instance',
-        content: {'application/json': {schema: {'x-ts-type': Order}}},
+        content: { 'application/json': { schema: { 'x-ts-type': Order } } },
       },
     },
   })
@@ -41,7 +41,7 @@ export class OrderController {
     responses: {
       '200': {
         description: 'Order model count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -57,7 +57,7 @@ export class OrderController {
         description: 'Array of Order model instances',
         content: {
           'application/json': {
-            schema: {type: 'array', items: {'x-ts-type': Order}},
+            schema: { type: 'array', items: { 'x-ts-type': Order } },
           },
         },
       },
@@ -73,7 +73,7 @@ export class OrderController {
     responses: {
       '200': {
         description: 'Order PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -88,11 +88,11 @@ export class OrderController {
     responses: {
       '200': {
         description: 'Order model instance',
-        content: {'application/json': {schema: {'x-ts-type': Order}}},
+        content: { 'application/json': { schema: { 'x-ts-type': Order } } },
       },
     },
   })
-  async findById(@param.path.number('id') id: number): Promise<Order> {
+  async findById(@param.path.number('id') id: string): Promise<Order> {
     return await this.orderRepository.findById(id);
   }
 
@@ -104,7 +104,7 @@ export class OrderController {
     },
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.number('id') id: string,
     @requestBody() order: Order,
   ): Promise<void> {
     await this.orderRepository.updateById(id, order);
@@ -118,7 +118,7 @@ export class OrderController {
     },
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.number('id') id: string,
     @requestBody() order: Order,
   ): Promise<void> {
     await this.orderRepository.replaceById(id, order);
@@ -131,7 +131,7 @@ export class OrderController {
       },
     },
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.number('id') id: string): Promise<void> {
     await this.orderRepository.deleteById(id);
   }
 }

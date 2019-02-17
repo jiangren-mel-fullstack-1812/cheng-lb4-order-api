@@ -3,10 +3,10 @@ import { Entity, model, property } from '@loopback/repository';
 @model()
 export class Order extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
   })
-  id?: number;
+  id?: string;
 
   @property({
     type: 'object',
